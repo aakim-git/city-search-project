@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>City Search: API Capstone Project</title>
+</head>
+<body>
+
+<!-- top navigation bar -->
+    <nav>
+
+    </nav>
+
+<!-- main search area with buttons -->
+    <main class="container">
+        <h3>Type in a city to search:</h3>
+        <form action="#" id="searchForm">
+            <input type="text" id="searchInput" placeholder="e.g. New York City" required>
+            <div class="buttons">
+                <button type="submit" data-4sq-category="food">Food</button>
+                <button type="submit" data-4sq-category="shops">Shopping</button>
+                <button type="submit" data-4sq-category="outdoors">Recreation</button>
+                <!-- <button id="btn3" type="submit">Recreation</button> -->
+            </div>
+        </form>
+    </main>
+
+<!-- results area -->
+    <div class="container">
+        <div class="results"></div>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="app.js"></script>
+</html>
