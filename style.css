@@ -1,3 +1,183 @@
-.venue-image {
-    width: 25%;
+/* overall styling*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+.wrapper {
+    text-align: center;
+}
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: url("https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.wrapper h1 {
+    font-family: 'Acme', sans-serif;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    font-size: 50px;
+}
+
+.wrapper p {
+    font-family: 'Acme', sans-serif;
+    color:  rgb(97, 74, 74); 
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#searchInput {
+    margin: 10px 0;
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border-bottom: 2px;
+}
+
+.buttons [type=submit] {
+    background-color: rgba(14, 12, 129, 0.753);
+    color: white;
+    font-size: 14px;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+
+/* main styling */
+main {
+    margin-bottom: 30px;
+}
+
+.col-4 {
+    float: left;
+}
+
+.venue-card {
+    height: auto;
+    overflow: hidden;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px 10px 40px 10px;
+    background: white;
+}
+
+.venue-image {
+    width: 100%;
+    border-radius: 5px;    
+}
+
+.venue-name {
+    padding-bottom: 15px;
+    font-family: 'Acme', sans-serif;
+  
+}
+
+.venue-name a {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
+.venue-category {
+    padding-top: 10px;
+    float: left;
+    width: 100%;
+}
+
+.venue-category-logo {
+    /* display: inline-block; */
+    float: left;
+    border-radius: 5px;
+}
+
+.venue-category-name {
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 12px;
+}
+
+.venue-address-container {
+    width: 100%;
+    text-align: left;
+    padding-left: 0;
+}
+
+.venue-address-container p {
+    color: black;
+}
+
+.hidden-element {
+    display: none;
+}
+
+.venue-address-city {
+    width: 100%;
+    color: black;
+}
+
+
+
+
+/* Grid CSS */
+
+/* Clearfix */
+.row::before,
+.row::after {
+  display: table;
+  content: '';
+}
+
+.row::after {
+  clear: both;
+}
+
+
+/* Mobile defaults */
+.col-4, .col-12 {
+  width: 100%;
+}
+
+
+/* Non-mobile, grid */
+@media only screen and (min-width: 530px) {
+  /* 3 columns, 3/12 in % */
+  .col-3 {
+    width: 25%;
+  }
+
+  /* 4 columns, 4/12 in % */
+  .col-4 {
+    width: 33.333333%;
+  }
+
+  /* 6 columns, 6/12 in % */
+  .col-6 {
+    width: 50%;
+  }
+}
+
+/* Non-mobile, grid */
+@media only screen and (max-width: 415px) {
+ .buttons [type=submit] {
+    width: 90%;
+}
+}
+
+@media only screen and (max-width: 335px) {
+    .wrapper h1 {
+        font-size: 35px;
+    }
+}
+
+ 
+
