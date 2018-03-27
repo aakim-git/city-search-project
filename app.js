@@ -16,13 +16,11 @@ function getDataFromFourSquareAPI (city, category, callback) {
         limit: 30,
         venuePhotos: 1,
     };  
-
     $.getJSON(URL_FOURSQUARE, parameters, callback);
-    // https://api.foursquare.com/v2/venues/explore?near=Davis,CA&section=food&query=tacos&client_id=N4TONANM1I0FXAJRPD414MFYR0BYIMLAEKRCLNMEUAMRJ0VR&client_secret=ZEYA0Z2LOFLOZ321VQYJKVMHTN5BQFCBZ1SYIMFJQ4ZQ3LUC&v=20180320&limit=20&venuePhotos=1 
 }
 
 
-//handle the JSON data from FourSquare. Set it to variable "results"
+//handle the JSON data from FourSquare/display results
 function displayFourSquareData(data) {
     let results = data.response.groups[0].items.map(city => renderResult(city));
     console.log(results);
@@ -30,7 +28,7 @@ function displayFourSquareData(data) {
 }
 
 
-// render the results to HTML
+// render the results, HTML
 function renderResult (result) {
     return `
     <div class="col-4 ${hiddenElement(result.venue.photos.count)}">
@@ -47,7 +45,7 @@ function renderResult (result) {
                     </div>
                     <div class="venue-address-container">
                         <p class="venue-address-street ${hiddenElement(result.venue.location.formattedAddress[0])}">${result.venue.location.formattedAddress[0]}</p>
-                        <p class="venue-address-street ${hiddenElement(result.venue.location.formattedAddress[1])}">${result.venue.location.formattedAddress[1]}</p>
+                        <p class="venue-address-street ${hiddenElement(result.venue.location.formattedAddress)}">${result.venue.location.formattedAddress[1]}</p>
                         <p class="venue-address-phone ${hiddenElement(result.venue.contact.formattedPhone)}">${result.venue.contact.formattedPhone}</p>
                     </div>
                 </div>
@@ -60,7 +58,7 @@ function renderResult (result) {
     </div>`;
 }
 
-
+// hide elements with no photos, ratings, etc.
 function hiddenElement (argument) {
     if (argument === 0 || argument === undefined) {
         return 'hidden-element';
@@ -68,19 +66,6 @@ function hiddenElement (argument) {
         return "";
     };
 }
-
-
-
-
-
-
-// function hiddenUndefined (venue) {
-//     if (result.venue.rating === undefined) {
-//         return 'hidden-element';
-//     } else {
-//         return "";
-//     };
-// }
 
 
 //get image URL
@@ -95,7 +80,7 @@ function getImageURL (venue) {
     };
 }
   
-//user text input based on which button you press
+//category input based on which button you press
 function submitCategoryButtons() {
     $('#searchForm .buttons button').on('click', function (e) {
         e.preventDefault();
@@ -108,6 +93,6 @@ function submitCategoryButtons() {
     });
 }
 
+//function call 
 submitCategoryButtons();
-
 });
