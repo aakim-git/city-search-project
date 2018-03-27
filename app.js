@@ -33,7 +33,7 @@ function displayFourSquareData(data) {
 // render the results to HTML
 function renderResult (result) {
     return `
-    <div class="col-4 ${hiddenElementNoPictures(result.venue)}">
+    <div class="col-4 ${hiddenElement(result.venue.photos.count)}">
         <div class="venue-card">
             <div class="venue-name">    
                 <a href="${result.venue.url}">${result.venue.name}</a>
@@ -46,14 +46,14 @@ function renderResult (result) {
                         <p class="venue-category-name">${result.venue.categories[0].shortName}</p>
                     </div>
                     <div class="venue-address-container">
-                        <p class="venue-address-street">${result.venue.location.formattedAddress[0]}</p>
-                        <p class="venue-address-street">${result.venue.location.formattedAddress[1]}</p>
-                        <p class="venue-address-phone">${result.venue.contact.formattedPhone}</p>
+                        <p class="venue-address-street ${hiddenElement(result.venue.location.formattedAddress[0])}">${result.venue.location.formattedAddress[0]}</p>
+                        <p class="venue-address-street ${hiddenElement(result.venue.location.formattedAddress[1])}">${result.venue.location.formattedAddress[1]}</p>
+                        <p class="venue-address-phone ${hiddenElement(result.venue.contact.formattedPhone)}">${result.venue.contact.formattedPhone}</p>
                     </div>
                 </div>
                 <div class="two-columns2">
                     <p class="venue-rating">Rating:</p>
-                    <p class="rating">${result.venue.rating}</p>
+                    <p class="rating ${hiddenElement(result.venue.rating)}">${result.venue.rating}</p>
                 </div>
             </div>
         </div>
@@ -61,13 +61,17 @@ function renderResult (result) {
 }
 
 
-function hiddenElementNoPictures (venue) {
-    if (venue.photos.count === 0 || venue.rating === undefined) {
+function hiddenElement (argument) {
+    if (argument === 0 || argument === undefined) {
         return 'hidden-element';
     } else {
         return "";
     };
 }
+
+
+
+
 
 
 // function hiddenUndefined (venue) {
