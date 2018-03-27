@@ -1,6 +1,6 @@
 # City Search Project
 
-An app that returns search results for restaurants, shopping, and recreation locations in any given city. Also includes ratings to indicate which local is most popular! Pulls from Foursquare API
+An app that returns search results for restaurants, shopping, and recreation locations in any given city. Also includes ratings to indicate which locale is most popular! Pulls from Foursquare API
 
 ## Motivation
 
