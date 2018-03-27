@@ -7,7 +7,7 @@ An app that returns search results for restaurants, shopping, and recreation loc
 For those who love to travel, and try new things.
 
 ## Screenshots
-Login Screen/Landing Page
+Landing Page
 
 ![login screen](screenshots/front-page-screenshot.PNG)
 
