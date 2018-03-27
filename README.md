@@ -32,4 +32,4 @@ Search Results
 
 ## Demo
 
-- [Live Demo](https://book-thing.herokuapp.com/)
+- [Live Demo](https://philchoi1.github.io/city-search-project/)
