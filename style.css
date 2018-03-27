@@ -62,7 +62,7 @@ main {
 }
 
 .venue-card {
-    height: auto;
+    height: 550px;
     overflow: hidden;
     border: 1px solid grey;
     border-radius: 5px;
@@ -86,6 +86,10 @@ main {
   text-decoration: none;
   font-size: 20px;
   color: black;
+}
+
+.venue-name a:hover {
+    color:rgba(21, 21, 172, 0.801);
 }
 
 .venue-category {
@@ -125,6 +129,27 @@ main {
     color: black;
 }
 
+.two-columns1 {
+    flex: 80%;
+}
+
+.two-columns2 {
+    flex: 20%;
+}
+
+.venue-info {
+    display: flex;
+}
+
+.venue-rating {
+    padding-top: 22px;
+}
+
+.rating {
+    font-size: 40px;
+}
+
+
 
 
 
@@ -149,7 +174,7 @@ main {
 
 
 /* Non-mobile, grid */
-@media only screen and (min-width: 530px) {
+@media only screen and (min-width: 750px) {
   /* 3 columns, 3/12 in % */
   .col-3 {
     width: 25%;
@@ -166,18 +191,36 @@ main {
   }
 }
 
+@media only screen and (max-width: 750px) {
+  /* 3 columns, 3/12 in % */
+  .col-3 {
+    width: 25%;
+  }
+
+  /* 6 columns, 6/12 in % */
+  .col-4 {
+    width: 50%;
+  }
+}
+
+
+
+
 /* Non-mobile, grid */
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 490px) {
  .buttons [type=submit] {
     width: 90%;
-}
-}
+    }
+ .col-4 {
+    width: 100%;
+    }
+  .venue-card {
+    height: auto;
+    }
 
 @media only screen and (max-width: 335px) {
     .wrapper h1 {
         font-size: 35px;
     }
 }
-
- 
-
+}

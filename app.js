@@ -9,11 +9,11 @@ function getDataFromFourSquareAPI (city, category, callback) {
         near: `${city}`,
         section: `${category}`,
         query: 'recommended',
-        radius: 100,
+        radius: 150,
         client_id: 'N4TONANM1I0FXAJRPD414MFYR0BYIMLAEKRCLNMEUAMRJ0VR',
         client_secret: 'ZEYA0Z2LOFLOZ321VQYJKVMHTN5BQFCBZ1SYIMFJQ4ZQ3LUC',
         v: 20180320,
-        limit: 18,
+        limit: 30,
         venuePhotos: 1,
     };  
 
@@ -26,7 +26,7 @@ function getDataFromFourSquareAPI (city, category, callback) {
 function displayFourSquareData(data) {
     let results = data.response.groups[0].items.map(city => renderResult(city));
     console.log(results);
-    $('.results').html(results);
+    $('.results').prop('hidden', false).html(results);
 }
 
 
@@ -39,29 +39,44 @@ function renderResult (result) {
                 <a href="${result.venue.url}">${result.venue.name}</a>
             </div>
             <a href="${result.venue.url}" target="_blank"><img class="venue-image" src="${getImageURL(result.venue)}"></a>
-            <div class="venue-category">
-                <img class="venue-category-logo" src="${result.venue.categories[0].icon.prefix}bg_32${result.venue.categories[0].icon.suffix}" alt="category logo">
-                <p class="venue-category-name">${result.venue.categories[0].shortName}</p>
-            </div>
-            <div class="venue-address-container">
-                <p class="venue-address-street">Address: ${result.venue.location.formattedAddress}</p>
-                <p class="venue-address-street">${result.tips[0].text}</p>
-        
+            <div class="venue-info">
+                <div class="two-columns1">
+                    <div class="venue-category">
+                        <img class="venue-category-logo" src="${result.venue.categories[0].icon.prefix}bg_32${result.venue.categories[0].icon.suffix}" alt="category logo">
+                        <p class="venue-category-name">${result.venue.categories[0].shortName}</p>
+                    </div>
+                    <div class="venue-address-container">
+                        <p class="venue-address-street">${result.venue.location.formattedAddress[0]}</p>
+                        <p class="venue-address-street">${result.venue.location.formattedAddress[1]}</p>
+                        <p class="venue-address-phone">${result.venue.contact.formattedPhone}</p>
+                    </div>
+                </div>
+                <div class="two-columns2">
+                    <p class="venue-rating">Rating:</p>
+                    <p class="rating">${result.venue.rating}</p>
+                </div>
             </div>
         </div>
     </div>`;
 }
 
-    // <p class="venue-address-city">City: ${result.venue.location.city}, ${result.venue.location.state}</p>
-    //     <p class="venue-address-phone">Telephone: ${result.venue.contact.phone}</p>
 
 function hiddenElementNoPictures (venue) {
-    if (venue.photos.count === 0) {
+    if (venue.photos.count === 0 || venue.rating === undefined) {
         return 'hidden-element';
     } else {
         return "";
     };
 }
+
+
+// function hiddenUndefined (venue) {
+//     if (result.venue.rating === undefined) {
+//         return 'hidden-element';
+//     } else {
+//         return "";
+//     };
+// }
 
 
 //get image URL
@@ -81,9 +96,11 @@ function submitCategoryButtons() {
     $('#searchForm .buttons button').on('click', function (e) {
         e.preventDefault();
         let inputTarget = $('#searchInput').val();
+        if (inputTarget === "") {
+            alert ('Please enter a city name');
+        }
         let category = $(e.currentTarget).data('4sq-category');
         getDataFromFourSquareAPI(inputTarget, category, displayFourSquareData);
-        searchWeather(query);
     });
 }
 
