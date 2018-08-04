@@ -24,7 +24,6 @@ body {
 
 .wrapper p {
     font-family: 'Acme', sans-serif;
-    color:  rgb(97, 74, 74); 
     margin-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -125,11 +124,11 @@ main {
 }
 
 .two-columns1 {
-    flex: 80%;
+    flex: 50%;
 }
 
 .two-columns2 {
-    flex: 20%;
+    flex: 50%;
 }
 
 .venue-info {
@@ -137,11 +136,16 @@ main {
 }
 
 .venue-rating {
-    padding-top: 22px;
+    padding-top: 70px;
+    color: black;
 }
 
 .rating {
     font-size: 40px;
+}
+
+u {
+    text-decoration: underline;
 }
 
 
