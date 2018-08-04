@@ -13,7 +13,7 @@ $(document).ready(function () {
             client_id: 'N4TONANM1I0FXAJRPD414MFYR0BYIMLAEKRCLNMEUAMRJ0VR',
             client_secret: 'T52ACWBOFK2HZBRETGTM3XKQBUXN0W2R4I2CU3UKNTVCKI5N',
             v: 20180320,
-            limit: 9,
+            limit: 6,
             venuePhotos: 1,
         };
         $.getJSON(URL_FOURSQUARE, parameters, callback);
